@@ -6,7 +6,7 @@ order: 2
 
 Welcome to JavaScript, a dynamically typed programming language that runs in web browsers and on the desktop via the Node runtime. There are three key concepts that you must learn to be able to use JavaScript, `values`, `types`, `variables`, and `functions`.
 
-#### Values and Types
+### Values and Types
 
 A value is what we call data in a program. Values are very simple, they simply are. They can be calculated using other values or declared directly. Values do not change, _they are always the same_.
 
@@ -22,7 +22,7 @@ Values represent data of a certain shape, known as a type. A type determine how 
 
 ---
 
-##### Arrays
+#### Arrays
 
 Beyond these few built-in types, the other two types are composite, in that they glue together one or more of these "primitive" types.
 
@@ -32,7 +32,17 @@ The `Array` type holds zero or more values of any type. Arrays are surrounded by
 
 `['test', false, 99]` is a value of `Array` that contains 3 values of differing types, `String`, `Boolean`, and `Number`.
 
-##### Objects
+We can get values out of an array using an index. Indexes start at zero.
+
+{% highlight javascript %}
+  //               0       1     2
+  const stuff = ['test', false, 99];
+  const justTheNumber = stuff[2];
+{% endhighlight %}
+
+To get the third value out of the `Array` use index 2 since that is the third number when you start counting from 0.
+
+#### Objects
 
 The `Object` type (also called `Record`) is a collection of mappings from a `String` (called a field or property) to a value of any type. Objects are delimited by curly brackets `{` and `}`. Objects are often used to describe a bundle of related values.
 
@@ -44,9 +54,20 @@ The `Object` type (also called `Record`) is a collection of mappings from a `Str
   }
 {% endhighlight %}
 
-This is a value of type `Record` with three fields, `name`, `userId`, and `accountType`.
+This is a value of type `Record` with three fields, `name`, `userId`, and `accountType`. You can use the names of fields in an `Object` to retrieve the associated value. There are two equivalent ways to do this.
 
-#### Variables
+{% highlight javascript %}
+  const userRecord = {
+    name: 'User name',
+    userId: 123,
+    accountType: 'owner'
+  }
+
+  const id = userRecord['userId'];
+  const id = userRecord.userId;
+{% endhighlight %}
+
+### Variables
 
 A variable is way of associating a name with a value. The `const` keywords binds a name to a value. A semicolon is used at the end of the line to signal the completion of the expression. The value bound to a variable may be declared on a single line or multiple lines.
 
@@ -64,7 +85,7 @@ Nonsensical as it may seem, it is common to try to re-bind or re-associate a var
   valueThatWillChangeOutFromUnderneathUs = 'they are a-changing';
 {% endhighlight %}
 
-#### Functions
+### Functions
 
 Functions are a special kind of value that can be used to produce a new value. Every function has at least one input, called an argument, and produces exactly one resulting value. They are bound to a name just like any other value.
 
