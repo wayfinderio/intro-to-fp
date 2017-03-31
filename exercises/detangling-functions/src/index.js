@@ -18,7 +18,7 @@ const { expect } = require('chai');
 //   "#ff0000": "red",
 //   "#00ff00": "green"
 // }
-const loadFile = (fileName) => {
+const convertFile = (fileName) => {
   const fileContents = fs.readFileSync(fileName);
   const json = JSON.parse(fileContents);
 
@@ -30,16 +30,17 @@ const loadFile = (fileName) => {
     colorMap[hexColor] = entry.colorName;
   }
 
-  return colorMap;
+  // This is simply a convenient way to test
+  // expect(colorMap).to.have.property('#ff0000', 'red');
+  // expect(colorMap).to.have.property('#00ff00', 'green');
+  // expect(colorMap).to.have.property('#0000ff', 'blue');
+  // expect(colorMap).to.have.property('#00ffff', 'cyan');
+  // expect(colorMap).to.have.property('#ff00ff', 'magenta');
+  // expect(colorMap).to.have.property('#ffff00', 'yellow');
+  // expect(colorMap).to.have.property('#000000', 'black');
+
+  const fileNameParts = fileName.split('.');
+  fs.writeFileSync(fileNameParts[0] + '_processed.' + fileNameParts[1], JSON.stringify(colorMap, null, 2));
 }
 
-const result = loadFile('colors.json');
-expect(result).to.have.property('#ff0000', 'red');
-expect(result).to.have.property('#00ff00', 'green');
-expect(result).to.have.property('#0000ff', 'blue');
-expect(result).to.have.property('#00ffff', 'cyan');
-expect(result).to.have.property('#ff00ff', 'magenta');
-expect(result).to.have.property('#ffff00', 'yellow');
-expect(result).to.have.property('#000000', 'black');
-
-console.log('Good job, it works');
+convertFile('colors.json');
