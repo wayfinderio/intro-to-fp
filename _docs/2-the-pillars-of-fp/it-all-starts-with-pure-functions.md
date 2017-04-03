@@ -10,7 +10,7 @@ If you were to imagine the properties you wanted every bit of code you ever had 
 
 Now what if you could only pick one property, what would it be? Think about this for a moment, what is the single most important property you could ascribe to "good" software? Does such a thing even exist?
 
-Functional programming is based on the idea that the ideal property for all software is that it is built out of `pure` functions _to the maximum extent possible_. This may be a brand new term to you although I'm certain you've written many pure functions yourself. All it means to be a pure function is the following:
+Functional programming is based on the idea that the ideal property for all software is that it is built out of `pure` functions _to the maximum extent possible_. "Pure function" may be a brand new term to you although I'm certain you've written many pure functions yourself. All it means to be a pure function is the following:
 
 > Always produces the same result given the same arguments
 
@@ -62,9 +62,9 @@ Where would we even start? Does `doQuery` always return a valid result? Would it
 
 #### Effects
 
-Some people refer to functions that are not pure as "impure", but I prefer the term effectful because it goes to the heart of the distinction. Pure functions by definition have no impact on the state of a program. You could apply one 0, 1, or 10,000 times and there would be no way to tell.
+Some people refer to functions that are not pure as "impure", but I prefer the term effectful because it goes to the heart of the distinction. Pure functions by definition have no impact on the state of a program. You could apply it 0, 1, or 10,000 times and there would be no way to tell.
 
-This is not to say that effectful functions are not still present in an application built this way. That's why the principle is about using pure functions _to the maximum extent possible_, not _built entirely out of pure functions_. The equivalent of `main` in your application will almost certainly be effectful, and that's ok! Effectful functions are like super functions, they can do everything a pure function can do **AND** all that stuff pure functions cannot. This means effectful functions can use pure functions and this doesn't interfere with the pure functions staying pure. Now a pure function used in this way still can't turn around and use an effectful function.
+Using pure functions _to the maximum extent possible_, does not mean _built entirely out of pure functions_. The equivalent of `main` in your application will almost certainly be effectful, and that's ok! Effectful functions are like super functions, they can do everything a pure function can do **AND** all that stuff pure functions cannot. This means effectful functions can use pure functions and this doesn't interfere with the pure functions staying pure. Now a pure function used in this way still can't turn around and use an effectful function.
 
 > Effectful => Pure => Pure
 
@@ -76,7 +76,7 @@ This is ok, effectful functions can use effectful functions
 
 > Effectful => Pure => Effectful
 
-This is not ok, pure functions cannot use effectful functions (without converting them to be effectful)
+This is not ok, pure functions cannot use effectful functions (without themselves becoming effectful)
 
 So a typical `main` function uses a combination of pure and effectful functions to set up everything your application needs to run. The effectful functions generally exist at the borders of your application, reading and writing files, responding to network requests, talking to the database, etc. This is sometimes known as `imperative shell, functional core`, from the talk [Boundaries](https://www.destroyallsoftware.com/talks/boundaries) by Gary Bernhardt.
 
@@ -125,3 +125,8 @@ Easy and Hard by contrast are subjective judgements. You may find playing guitar
 #### Implications
 
 Generally when people dislike a new language or tool, it's because it is hard, not because it is complex. This is a bad tradeoff. Hard things become easy, complex things stay complex. Pure functions are by definition simple, and effectful functions are by definition complex. Building as much of our application out of pure functions keeps it as simple as possible, **but in the short term may make writing programs harder.**
+
+### Terms
+
+- Effectful: Causing an observable change in the state of the application or greater computing environment
+- Imperative: A style of programming where lines of source code are implicitly ordered temporally. This is often a necessity as many of the commands in imperative languages can result in effects and thus must be performed in a strictly specified order.

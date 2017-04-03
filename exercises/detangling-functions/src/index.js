@@ -1,5 +1,6 @@
 const fs = require('fs');
 const { expect } = require('chai');
+const { sep } = require('path');
 
 // JSON data looks like
 //   "colors":[
@@ -39,8 +40,12 @@ const convertFile = (fileName) => {
   // expect(colorMap).to.have.property('#ffff00', 'yellow');
   // expect(colorMap).to.have.property('#000000', 'black');
 
+  if (!fs.existsSync('processed')) {
+    fs.mkdirSync('processed');
+  }
+
   const fileNameParts = fileName.split('.');
-  fs.writeFileSync(fileNameParts[0] + '_processed.' + fileNameParts[1], JSON.stringify(colorMap, null, 2));
+  fs.writeFileSync('processed' + sep + fileNameParts[0] + '_processed.' + fileNameParts[1], JSON.stringify(colorMap, null, 2));
 }
 
 convertFile('colors.json');
