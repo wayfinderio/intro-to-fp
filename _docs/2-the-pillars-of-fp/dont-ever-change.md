@@ -75,12 +75,12 @@ The indexes of an array and the properties of an object are, under the hood, mer
 |**Address**|
 |0x100|0x110|0x130|
 |**Alias**|
-|Foo|.bar|.baz|
+|foo|.bar|.baz|
 |**Value**|
 |10|10|7|
 |**New value**|
 |10|10|5|
-//
+
 This idea of writing to memory by variables and offsets also goes back to C and is very transparent when using it. Just like with aliases, this is what's happening in any garbage collected language, it's just not as obvious. This makes it very efficient to update just a tiny portion of memory and to re-use memory over and over to keep the overall memory usage of an application to a minimum. These are certainly very important considerations but they come at a cost. The ability to explicitly perform in-place updates destroys any ability to rely on the data referenced by variables to act as a value.
 
 ### Value Only Programming
@@ -117,4 +117,10 @@ For non-value types that you want to treat as a value, you will need to create n
   // };
 {% endhighlight %}
 
-This lacks the efficiency gains that can come from using a library such as Immutable.js as it will duplicate the entirety of the array and only make a shallow copy of the object, however it is dramatically simpler and we will use this style throughout the rest of this course.
+This lacks the efficiency gains that can come from using a library such as Immutable.js as it will duplicate the entirety of the array and only make a shallow copy of the object, however it is dramatically simpler and we will use this style throughout the rest of this course. For more advanced use cases such as needing to perform a deep copy of an object there are many utility libraries such as [Ramda](http://ramdajs.com/) and [lodash](https://lodash.com/) which have this functionality.
+
+### Exercise
+
+Now it's your turn. Open `exercises/changing-state-with-immutability/src/index.js` in your editor of choice and uncomment the two assertsions at the bottom.
+
+To test your changes, run `node ../run.js` from the `exercises/changing-state-with-immutability` directory.
