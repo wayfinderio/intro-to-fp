@@ -1,6 +1,6 @@
 ---
 title: Type It Out
-category: FP Idioms
+category: The Guts of FP
 order: 2
 ---
 
@@ -42,20 +42,35 @@ This function is on the prototype of String and so it implicitly takes the Strin
 
 `String -> String -> Array String`
 
-If you're familiar with generics from C++, Java, C#, TypeScript, or Flow you could read `Array String` as `Array<String>`. Since we have the `->` to separate arguments the extra characters are unnecessary. I know this is all very unfamiliar but give it a chance. Remember we're learning Mandarin, not Spanish.
+If you're familiar with generics from C++, Java, C#, TypeScript, or Flow you could read `Array String` as `Array<String>`. Since we have the `->` to separate arguments the extra `<` and `>` are unnecessary. I know this is all very unfamiliar but give it a chance. Remember we're learning Mandarin, not Spanish.
 
-The next thing to look at is how to represent functions. This is very straightforward, simply surround the types that are part of the function in parens. So if you had a function, that as the first argument took another function from String to Number, and then as a second argument took a Boolean and finally returned a String, that signature would be:
-
-`(String -> Number) -> Boolean -> String`
-
-This is pretty close to having the right parts as the fold function from before. That function operated on Arrays which we've seen how to write, but the Arrays that fold operated on weren't necessarily filled with Strings, in the example they most certainly were **not** filled with Strings. If you've familiar with the aforementioned generics you've likely encountered this sort of thing before. In those languages we might write a function that operates on an Array that can hold any type as `Array<T>`. In this system that would be `Array t`. Notice the lower case letter to represent a generic type. It's also conventional to use `a`, `b`, `c`, etc. instead of `T` or `E` as is common in C# and Java.
+We're getting closer to having the right parts to put a type on the fold function from before. That function operated on Arrays which we've seen how to write, but the Arrays that fold operated on weren't necessarily filled with Strings, in the example they most certainly were **not** filled with Strings. If you've familiar with the aforementioned generics you've likely encountered this sort of thing before. In those languages we might write a function that operates on an Array that can hold any type as `Array<T>`. In this system that would be `Array t`. Notice the lower case letter to represent a generic type. It's also conventional to use `a`, `b`, `c`, etc. instead of `T` or `E` as is common in C# and Java.
 
 {% highlight javascript %}
   // element -> colors  -> result
   //    a    -> Array b -> Array b
   const extractColor = (element, colors) => [...colors, element.hexValue]
+{% endhighlight %}
 
-  //          fn               -> init    -> array   -> result
+The last thing to look at is how to represent functions that are provided as arguments or returned. This is very straightforward, simply surround the types that are part of the function in parens. So if you had a function, that as the first argument took another function that combined two Strings, and then as a second argument took a String, then as a third argument took a second String and finally returned a String, that signature would be:
+
+{% highlight javascript %}
+  // (String -> String -> String) -> String -> String -> String
+  const stringCombiner = (combineFn, first, second) => combineFn(first, second);
+{% endhighlight %}
+
+If the function was returning a function instead:
+
+{% highlight javascript %}
+  // String -> (String -> String)
+  const combineStrings = (thing1) =>
+    (thing2) => thing1 + thing2;
+{% endhighlight %}
+
+Ok now we're ready to tackle `fold`.
+
+{% highlight javascript %}
+  //          fn               ->   init  ->  array  -> result
   // (a -> Array b -> Array b) -> Array b -> Array a -> Array b
   const fold = (fn, init, array) => { ... }
 {% endhighlight %}

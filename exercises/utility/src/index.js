@@ -14,26 +14,26 @@ const { sep } = require('path');
 //       }
 //   ]
 //
-// We want: [ "#f00", "#0f0" ]
+// We want: [ "#0f0" ]
 const convertFile = (fileName) => {
   const fileContents = fs.readFileSync(fileName);
   const json = JSON.parse(fileContents);
 
-  return fold(extractColor, [], json.colors);
+  const filteredColors = filter((color) => !color.hexValue.startsWith('#f'), json.colors);
+  return map((color) => color.hexValue, filteredColors);
 }
 
-const extractColor = (element, colors) => [...colors, element.hexValue];
+const filter = (filterFn, array) => {
+  // implement filter here
+}
 
-const fold = (fn, init, array) => {
-  // implement fold here
+const map = (mapFn, array) => {
+  // implement map here
 }
 
 const colors = convertFile('colors.json');
 
-expect(colors).to.contain('#f00');
 expect(colors).to.contain('#0f0');
 expect(colors).to.contain('#00f');
 expect(colors).to.contain('#0ff');
-expect(colors).to.contain('#f0f');
-expect(colors).to.contain('#ff0');
 expect(colors).to.contain('#000');

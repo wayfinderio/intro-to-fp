@@ -1,6 +1,6 @@
 ---
 title: While We're At It
-category: FP Idioms
+category: The Guts of FP
 order: 1
 ---
 
@@ -55,12 +55,12 @@ This may look more complex than the `while` example if you're not used to thinki
 
 Everything we could express in a while loop we can do via recursion and not need to mutate a variable along the way. With that said though, you probably don't write many while loops given there are constructs that more directly do what you want. Let's look at a few common cases.
 
-#### Filter out unwanted values
+#### Filter out unwanted values, keeping the ones that pass a condition
 
 {% highlight javascript %}
   const itemsToKeep = [];
   for (var i = 0; i < collection.length; i++) {
-    if (collection[i] === someCriteria) {
+    if (someCriteria(collection[i])) {
       itemsToKeep.push(collection[i]);
     }
   }
@@ -139,7 +139,7 @@ The `thingToDoWithEachNewElement` is a function that takes the working `newColle
 #### Filter type operation
 {% highlight javascript %}
   const filterFn = (element, collection) =>
-    element === condition
+    someCondition(element)
       ? [...collection, element]
       : collection;
 {% endhighlight %}
@@ -156,10 +156,12 @@ And we could use these functions with `fold` in a more concrete setting:
   const transformedValues = fold(mapFn, [], [3, 4, 5, 6]);
 {% endhighlight %}
 
-> This is generally the point where people's eyes glaze over as we begin to get a bit more abstract. Hang in there, it's definitely worth it!
+> This is generally the point where people's eyes glaze over as we begin to get a bit more abstract. From here on out, we will be working with concepts you likely have never encountered. This is genuinely hard to get at first, but the "different paradigm" type of understanding is on the other side, so hang in there!
 
 ### Exercise
 
-Ready for a challenge? Open `exercises/oragami/src/index.js` in your editor and implement the fold function that can operate on arrays. Do this either using a for loop or using recursion (or try both).
+Ready for a challenge? Open `exercises/oragami/src/index.js` in your editor and implement the `fold` function that can operate on arrays. Do this either using a for loop or using recursion (or try both). It matters much less how something like `fold` is implemented "under the hood" if the interface is pure.
 
 To test your changes, run `node ../run.js` from the `exercises/oragami` directory.
+
+> Ask questions!
