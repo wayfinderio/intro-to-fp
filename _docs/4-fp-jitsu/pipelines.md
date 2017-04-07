@@ -86,7 +86,21 @@ If we were working with a standard library of functions that were curried and no
   )(requestLogs);
 {% endhighlight %}
 
-Compare this to a for loop style solution:
+Which could itself be shortened a bit using composition
+
+{% highlight javascript %}
+  const invalidImagePaths = R.pipe(
+    R.map(R.pipe(R.get('path'), R.split('/')),
+    R.filter((parts) => parts.length > 2 && parts[0] === 'images'),
+    R.map(R.pipe(R.drop(1), R.map(R.join('/'))
+  )(requestLogs);
+{% endhighlight %}
+
+> The density of the pipelined version may be intimidating at first. That's ok and totally normal.
+
+> Density refers to the amount of work being done by the line.
+
+Almost every character beyond the stuff that is unavoidable such as parentheses relates to the expression of what you're trying to do, very little is noise. Compare this to a for loop style solution:
 
 {% highlight javascript %}
   const invalidPaths = [];
@@ -100,3 +114,5 @@ Compare this to a for loop style solution:
 {% endhighlight %}
 
 While the for loop style may be more familiar, look at how intertwined the machinery of iteration and updating a collection are with the logic of what you want to accomplish. This is a fairly trivial example, I'm sure you've seen much much worse.
+
+One big problem people new to this style have is to assume the semantic density of any line is equal to imperative code. Functional style code is often many fewer lines but those lines are often more dense. The real win though is in emphasizing the core logic you want to perform and in removing altogether then noise of common things such as iteration. So yes, it may take you longer to work through any given line, but in the end you'll have fewer lines, and those lines will all have a much better signal to noise ratio than you're used to.
