@@ -9,7 +9,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "babel-cli": "^6.24.1",
     "babel-plugin-transform-object-rest-spread": "^6.23.0",
-    "chai": "^3.5.0"
+    "chai": "^3.5.0",
+    "ramda": "^0.23.0"
   }
 }
