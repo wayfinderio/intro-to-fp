@@ -4,7 +4,7 @@ category: Welcome to Functional Programming
 order: 2
 ---
 
-Welcome to JavaScript, a dynamically typed programming language that runs in web browsers and on the desktop via the Node runtime. There are three key concepts that you must learn to be able to use JavaScript, `values`, `types`, `variables`, and `functions`.
+Welcome to JavaScript, a dynamically typed programming language that runs in web browsers and on the desktop via the Node runtime. There are four key concepts that you must learn to be able to use JavaScript, `values`, `types`, `variables`, and `functions`.
 
 ### Values and Types
 
@@ -103,5 +103,10 @@ The name(s) inside the parentheses are the arguments (aka inputs), and the resul
 Functions can be used by applying them to values. For example, if we wanted to use `makeTheLogoBigger` to a value bound to the variable `logo` we could do that like this:
 
 {% highlight javascript %}
-  const newLogoSize = makeTheLogoBigger(logo);
+  const logo = 5;
+  const newLogoSize = makeTheLogoBigger(logo); // 6
 {% endhighlight %}
+
+### But, but, but, syntax?
+
+Ok, so there are some nice syntactial bits we're leaving out here. Those things are not new concepts, just convenient ways of doing what we already know how to do. We'll cover the syntax bits as we encounter it.

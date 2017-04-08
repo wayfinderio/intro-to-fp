@@ -14,19 +14,19 @@ order: 3
 - Functions **always** have at least one argument and **always** produce a value
 - That's about all we care about
 
-You might be thinking that what I'm proposing goes something like this. So as a community, we started with a language that looks like this:
+You might be thinking that what I'm proposing goes something like this. So at one point I might have gone out and read through this:
 
 ![Javascript The Definitive Guide](/images/js_definitive_guide.jpg){:width="300px"}
 
 _1096 pages_
 
-And then later when JavaScript started to blow up and be used for rich applications, we got a subset of the language that looks like this:
+And then someone came along and popularized the idea that maybe we didn't need all that and it would be a good idea to maybe just have this:
 
 ![Javascript The Definitive Guide](/images/js_good_parts.jpg){:width="300px"}
 
 _176 pages_
 
-Now this stuff you're describing is even smaller:
+Now you're telling me all I need is this:
 
 ![Javascript The FP Guide](/images/js_fp_guide.png){:width="300px"}
 
