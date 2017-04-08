@@ -24,19 +24,21 @@ While it's possible for `someEndValue` to be anything it's extremely common for 
   }
 {% endhighlight %}
 
-This immediately brings up a problem, if we want to avoid mutating state, what useful thing could we do in the body of the while loop? While is not an expression, so we can't be returning a value. While demands that we mutate something inside the body, even if we are creating a new value each loop we're still rebinding the variable to a new value. This is as close to no-mutation as we can accomplish with while.
+This immediately brings up a problem, if we want to avoid mutating state, what useful thing could we do in the body of the while loop? While is not an expression, so we can't be returning a value. While demands that we mutate something inside the body, even if we are creating a new value each loop we're still rebinding the variable to a new value. This is as close to no-mutation as we can accomplish with while, but we're still clobbering that outer variable each time.
 
 {% highlight javascript %}
   let numbers = [];
 
   let i = 0;
   while (i < 5) {
-    numbers = [...numbers, i];
+    numbers.push(i);
     i++;
   }
 {% endhighlight %}
 
-There is another construct that can be used to accomplish a looping structure but allows each "loop" to have its own scope. You may have never thought about `recursion` this way, but it's true!
+Furthermore, since `for` is not an expression, there is no way to really combine it with anything else. This is a concept known as composition and we'll return to it later. Fortunately there's another construct that can be used to accomplish a looping structure but allows you to return a value at the end and doesn't need to mutate anything or reassign variables. This means you can use `const someValue = doTheThing(...)` or even `const someValue = doTheThing(...).andThen(...)`. You may have never thought about `recursion` this way, but it's true!
+
+> Recursion is the ability of a function to be applied to an argument inside itself. If done wrong this leads to an infinite chain of application in much the same way that forgetting the `i++` at the end of a `while` is an infinite loop.
 
 {% highlight javascript %}
   const populateArray = (numbers, i, endValue) =>
@@ -50,10 +52,10 @@ There is another construct that can be used to accomplish a looping structure bu
 This may look more complex than the `while` example if you're not used to thinking recursively and using it in this manner. Hopefully though you see much of the operations we're performing are the same.
 
 - `i < 5` is the same as `i < endValue`
-- `[...numbers, i]` to add a value to the array is the same
+- `numbers.push(i)` and `[...numbers, i]` are both adding an element to the array
 - `i++` and `i + 1` both move the counter up one
 
-Everything we could express in a while loop we can do via recursion and not need to mutate a variable along the way. With that said though, you probably don't write many while loops given there are constructs that more directly do what you want. Let's look at a few common cases.
+Everything we could express in a while loop we can do via recursion and not need to mutate an outer variable along the way. With that said though, you probably don't write many while loops given there are constructs that more directly do what you want such as for. Let's look at a few common cases.
 
 #### Filter out unwanted values, keeping the ones that pass a condition
 
@@ -77,7 +79,7 @@ Everything we could express in a while loop we can do via recursion and not need
   }
 {% endhighlight %}
 
-If your language supports a `foreach` style iteration where the value itself is bound to a local variable instead of using an index, these could both be re-written in this manner.
+If your language supports a `foreach` style iteration (`for x of y` in ES6) where the value itself is bound to a local variable instead of using an index, these could both be re-written using that.
 
 Both these cases have a striking amount of similarity. Hopefully you've noticed this at some point as well. In fact, almost every line of each of these two cases are the same
 
@@ -116,7 +118,9 @@ The first function does not need to have zero arguments, in fact it's often usef
   const finalValue = plusTen(5); // 15
 {% endhighlight %}
 
-A function that receives another function as an argument, or returns a new function as a return value is known as a **higher order function**. This may not seem very useful at first, but let's apply the idea to the problem from before and see how this both helps eliminates the need for mutation of a variable, and solves a broad class of problems, all at once.
+> A function that receives another function as an argument, or returns a new function as a return value is known as a **higher order function**.
+
+This may not seem very useful at first, but let's apply the idea to the problem from before and see how this both helps eliminates the need for mutation of a variable, and solves a broad class of problems, all at once.
 
 ### Fold and Friends
 
@@ -134,7 +138,7 @@ Fold has the general shape of:
   const newCollection = fold(thingToDoWithEachNewElement, initialNewCollection, collectionToIterateOver);
 {% endhighlight %}
 
-The `thingToDoWithEachNewElement` is a function that takes the working `newCollection` and adds a new element to it, by doing a if check in the case of a filter type operation, or by running the element through a function first as in the case of the map type operation.
+The `thingToDoWithEachNewElement` is a function that takes the working `newCollection` and adds a new element to it. This might be by doing a if check in the case of a filter type operation, or by running the element through a function first as in the case of the map type operation.
 
 #### Filter type operation
 {% highlight javascript %}

@@ -90,11 +90,11 @@ Nonsensical as it may seem, it is common to try to re-bind or re-associate a var
 Functions are a special kind of value that can be used to produce a new value. Every function has at least one input, called an argument, and produces exactly one resulting value. They are bound to a name just like any other value.
 
 {% highlight javascript %}
-  const makeTheLogoBigger = (logoSize) => logoSize + 1
+  const makeTheLogoBigger = (logoSize) => logoSize + 1;
 {% endhighlight %}
 
 {% highlight javascript %}
-  const sum = (a, b) => a + b
+  const sum = (a, b) => a + b;
 {% endhighlight %}
 
 
@@ -105,6 +105,15 @@ Functions can be used by applying them to values. For example, if we wanted to u
 {% highlight javascript %}
   const logo = 5;
   const newLogoSize = makeTheLogoBigger(logo); // 6
+{% endhighlight %}
+
+Occasionally you will need to do more than one thing in the process of producing a result from a function. Often this involves creating intermediate values. In this case you can add curly braces to the body of the function. You will also need to put `return` in front of the value that will be handed back from the function.
+
+{% highlight javascript %}
+  const makeTheLogoBigger = (logoSize) => {
+    // do something here first
+    return logoSize + 1;
+  }
 {% endhighlight %}
 
 ### But, but, but, syntax?

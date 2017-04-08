@@ -17,7 +17,7 @@ All of these properties speak to a common feature of code written this way, it i
 
 Reasoning about our programs is a big deal, after we spend a lot of time time reading code and trying to understand it, even code that we wrote ourselves 2 weeks ago. Although data on this topic is often anecdotal your experience has hopefully given you the same impression. I find myself reading a **lot** more code than I write, especially when trying to understand the implications of a fix or change. If I'm working with effectful functions, I have to trace down through each of those functions to see what they do, and on, and on until it finally bottoms out. If I'm dealing with pure functions often I do not need to go down that path. _Easy to reason about_ is like a promise that you're only going to juggle the balls you absolutely must, no unnecessary stuff thrown in there.
 
-The rest of our exploration of functional programming ideas will be motivated by this pursuit of _easy to reason about_.
+The rest of our exploration of functional programming ideas will be motivated by this pursuit of _easy to reason about_ which in turn is built on the idea of doing the most possible work with pure functions.
 
 ### Terms
 
