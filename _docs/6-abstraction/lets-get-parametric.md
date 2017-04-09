@@ -44,17 +44,18 @@ The key insight here is that we know absolutely nothing about `a`. What operatio
   id : a -> a
 {% endhighlight %}
 
-> We sort of glossed over this before, relating the concept to Java/C# generics but in the domain of functional programming having a generic type parameter(s) is call parametric polymorphism instead of generics.
+> We sort of glossed over this before, relating the concept to Java/C# generics but in the domain of functional programming having a generic type parameter(s) is called parametric polymorphism instead of generics.
 
 This idea of "there's only one thing we could possibly do" relates back to the idea of abstraction.
 
-> The purpose of abstraction is not to be vague, but to create a new semantic level in which one can be absolutely precise.
+![Edsger Dijkstra](/images/abstraction-dijkstra.jpg)
 
 Abstraction is not:
 
 - Wrapping up code into a library
 - Adapters
 - Information hiding
+- Being vague
 
 Abstraction is about reducing discarding all unessential information so only the single idea that is being represented remains.
 
@@ -72,53 +73,57 @@ What do we know about these:
   foo : a -> b -> a
 {% endhighlight %}
 
-- It is returning the `a` and ignoring the `b`
+[](#spoiler "It is returning the 'a' and ignoring the 'b'")
+
+---
 
 {% highlight elm %}
   foo : a -> a -> a
 {% endhighlight %}
 
-- It is returning one of the `a`'s, we don't know which, but it will always return the same one
+[](#spoiler "It is returning one of the a's, we don't know which, but it will always return the same one")
+
+---
 
 {% highlight elm %}
   first : List a -> a
 {% endhighlight %}
 
-- The `first` function doesn't know what `a` is, therefore it can't do anything to the values in the List
-- What if the list is empty?
-- `first` can't create a new value of type `a`, it doesn't know how
-- We know this function can't be correct, just from looking at it's type signature
+[](#spoiler "The first function doesn't know what 'a' is, therefore it can't do anything to the values in the List.")
+[](#spoiler "What if the list is empty? first can't create a new value of type a, it doesn't know how. We know this function can't be correct, just from looking at it's type signature")
+
+---
 
 {% highlight elm %}
   foo : List a -> List a
 {% endhighlight %}
 
-- The `foo` function doesn't know what `a` is, therefore it can't do anything to the values in the List
-- All the values in the List that is returned were in the original List
+[](#spoiler "All the values in the List that is returned were in the original List")
+
+---
 
 {% highlight elm %}
   foo : List a -> List a -> List a
 {% endhighlight %}
 
-- The `foo` function doesn't know what `a` is, therefore it can't do anything to the values in the List
-- All the values in the List that is returned were in one of the original Lists
+[](#spoiler "All the values in the List that is returned were in one of the original Lists")
+
+---
 
 {% highlight elm %}
   foo : List a -> List b
 {% endhighlight %}
 
-- The `foo` function doesn't know what `a` is, therefore it can't do anything to the values in the List
-- There is no way for the function to get a `b` from an `a`
-- We know this function can't be correct, just from looking at it's type signature
+[](#spoiler "The 'foo' function doesn't know what 'a' is, therefore it can't get a 'b' from an 'a'. We know this function can't be correct, just from looking at it's type signature")
+
+---
 
 {% highlight elm %}
   foo : (a -> b) -> List a -> List b
 {% endhighlight %}
 
-- The `foo` function doesn't know what `a` is, therefore it can't do anything to the values in the List **directly**
-- There is a function provided that will work with any `a` and always produce a `b`
-- All the values in the List that is returned were obtained by taking a value from the input list and running in through the `(a -> b)` function.
-- By the way, this function is `map`
+[](#spoiler "There is a function provided that will work with any 'a' and always produce a 'b'. All the values in the List that is returned were obtained by taking a value from the input list and running in through the (a -> b) function.")
+[](#spoiler "By the way, this function is 'map'")
 
 ### What's the point?
 
