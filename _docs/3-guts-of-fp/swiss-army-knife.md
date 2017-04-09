@@ -22,14 +22,14 @@ Given that `fold` is essentially the canonical while loop, but in functional for
   const transformedValues = fold(mapFn, [], [3, 4, 5, 6]);
 {% endhighlight %}
 
-In the same way that a `while` loop is more general than a `for` loop, and that is more general than the `for in` or `for of` variants, we can also write a more specialized version. What we'd like to have an equivalent of `filterFn` + `fold` but with the condition test parameterized. The signature for this would look like
+In the same way that a `while` loop is more general than a `for` loop, and that is more general than the `for in` or `for of` variants, we can also write a more specialized version. What we'd like to have an equivalent of `filterFn` + `fold` but with the condition test parameterized. The signature for this would look like:
 
 {% highlight javascript %}
   // (a -> Boolean) -> Array a -> Array a
-  const filter = (mapFn, array) => // filtered array
+  const filter = (filterFn, array) => // filtered array
 {% endhighlight %}
 
-We could do the same for `mapFn` + `fold`.
+We could do the same for `mapFn` + `fold`:
 
 {% highlight javascript %}
   // (a -> b) -> Array a -> Array b

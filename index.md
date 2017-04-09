@@ -7,10 +7,9 @@ Welcome to this course. It is our sincerest hope that you will find the topic of
 
 ### Setup
 
-To be ready to start the course you'll need to set up a few things:
+To be ready to start the course you'll need to install a few things:
 
-- First Step
-- Second Step
-- Third Step
+- [Node 7.x](http://nodejs.org)
+- [Elm](http://elm-lang.org)
 
 > If you're having **any** problems please let an instructor know.

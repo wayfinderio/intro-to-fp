@@ -2,7 +2,7 @@ const { execSync } = require('child_process');
 const { existsSync } = require('fs');
 const { sep } = require('path');
 
-if (!existsSync('node_modules')) {
+if (!existsSync(`${__dirname}${sep}node_modules`)) {
   console.log('Installing dependencies');
   console.log(execSync('npm i', { cwd: __dirname}).toString());
   console.log('Done installing dependencies\n-------------\n');

@@ -6,3 +6,5 @@ node_modules
 lib
 *_processed.json
 processed
+export
+intro-to-fp.zip

@@ -24,8 +24,17 @@ const convertFile = (fileName) => {
 
 const extractColor = (element, colors) => [...colors, element.hexValue];
 
+// const fold = (fn, init, array) => 
+//   array.length > 0
+//     ? fold(fn, fn(array[0], init, init.slice(1)))
+//     : init;
+
 const fold = (fn, init, array) => {
-  // implement fold here
+  let collection = [...init];
+  for (var i = 0; i < array.length; i++) {
+    collection = fn(array[i], collection)
+  }
+  return collection;
 }
 
 const colors = convertFile('colors.json');

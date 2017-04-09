@@ -19,7 +19,7 @@ const b = (numbers) => numbers.every((n) => n >= 0);
 const c = (str) => str.length;
 
 // pick one of these (or try it both ways)
-const moar = compose(?);
-const moar = pipe(?);
+// const moar = compose(?);
+const moar = pipe(pipe(b, a), c);
 
 expect(moar([99, 6, -2])).to.equal(9);

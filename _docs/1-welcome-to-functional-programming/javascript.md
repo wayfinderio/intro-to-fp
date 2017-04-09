@@ -4,6 +4,10 @@ category: Welcome to Functional Programming
 order: 2
 ---
 
+This course does unfortunately rely on you knowing a bit of JavaScript. This is necessary in order to draw a contrast between how things are done idiomatically in JavaScript and the approach that functional programming would rather take. Sometimes these are very compatible but more often they are not. The following section describes a JavaScript that we will eventually use, but on the way there, we will use several JavaScript language features such as [for loops](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for) and prototype function calls, for example [String.split](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/split). In addition we will occasionally look at code that utilizes the Node [require](https://nodejs.org/api/modules.html) syntax which is a way to gain access to code written in a different file, which in Node parlance are called "modules".
+
+### The Mirror (JavaScript) Universe
+
 Welcome to JavaScript, a dynamically typed programming language that runs in web browsers and on the desktop via the Node runtime. There are four key concepts that you must learn to be able to use JavaScript, `values`, `types`, `variables`, and `functions`.
 
 ### Values and Types
@@ -116,6 +120,23 @@ Occasionally you will need to do more than one thing in the process of producing
   }
 {% endhighlight %}
 
+### Making decisions
+
+While not a key concept we're not going to be able to get away from needing to know the syntax for how to make a decision. There's really not a good way to make this into a function.
+
+{% highlight javascript %}
+  const result = condition ? ifTrue : ifFalse
+
+  const answer = x > 3 ? "YES!" : "Nah";
+
+  // Whitespace isn't significant here. In the following sections we'll typically write this multiple lines:
+
+  cont answer = x > 3
+    ? "YES!"
+    : "Nah";
+{% endhighlight %}
+
 ### But, but, but, syntax?
+
 
 Ok, so there are some nice syntactial bits we're leaving out here. Those things are not new concepts, just convenient ways of doing what we already know how to do. We'll cover the syntax bits as we encounter it.
