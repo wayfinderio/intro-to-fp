@@ -6,9 +6,9 @@ order: 2
 
 This course does unfortunately rely on you knowing a bit of JavaScript. This is necessary in order to draw a contrast between how things are done idiomatically in JavaScript and the approach that functional programming would rather take. Sometimes these are very compatible but more often they are not. The following section describes a JavaScript that we will eventually use, but on the way there, we will use several JavaScript language features such as [for loops](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for) and prototype function calls, for example [String.split](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/split). In addition we will occasionally look at code that utilizes the Node [require](https://nodejs.org/api/modules.html) syntax which is a way to gain access to code written in a different file, which in Node parlance are called "modules".
 
-### The Mirror (JavaScript) Universe
+### JavaScript essentials
 
-Welcome to JavaScript, a dynamically typed programming language that runs in web browsers and on the desktop via the Node runtime. There are four key concepts that you must learn to be able to use JavaScript, `values`, `types`, `variables`, and `functions`.
+Welcome to JavaScript, a dynamically typed programming language that runs in web browsers and on the desktop via the Node runtime. There are four key concepts and two syntactic forms that you must learn to be able to use JavaScript. The concepts are `values`, `types`, `variables`, and `functions`, the syntactic forms are `if` and `for`.
 
 ### Values and Types
 
@@ -16,7 +16,7 @@ A value is what we call data in a program. Values are very simple, they simply a
 
 `5` is a value, so is the text `hello, world!`.
 
-Values represent data of a certain shape, known as a type. A type determine how many values there are of that type. For the `Boolean` type there are only 2 possible values, `true` and `false`. For every other built-in type there are many more possibilities. For `Number` every number between `-9007199254740991` and `9007199254740991` is a possible value (up to the limitations of floating point precision). That's 15 orders of magnitude more possible values. `String` is the type of textual data and can have an arbitrary number of values, up to the limitations of your computer's memory. Strings are represented with either single or double quotes around them to distinguish them from variables.
+Values represent data of a certain shape, known as a type. A type determines how many values there are of that type. For the `Boolean` type there are only 2 possible values, `true` and `false`. For every other built-in type there are many more possibilities. For `Number` every number between `-9007199254740991` and `9007199254740991` is a possible value (up to the limitations of floating point precision). That's 15 orders of magnitude more possible values. `String` is the type of textual data and can have an arbitrary number of values, up to the limitations of your computer's memory. Strings are represented with either single or double quotes around them to distinguish them from variables.
 
 `true` and `false` are the only two values of `Boolean`.
 
@@ -73,7 +73,7 @@ This is a value of type `Record` with three fields, `name`, `userId`, and `accou
 
 ### Variables
 
-A variable is way of associating a name with a value. The `const` keywords binds a name to a value. A semicolon is used at the end of the line to signal the completion of the expression. The value bound to a variable may be declared on a single line or multiple lines.
+A variable is association of a name to a value. The `const` keywords binds a name to a value. A semicolon is used at the end of the line to signal the completion of the expression. The value bound to a variable may be declared on a single line or multiple lines.
 
 {% highlight javascript %}
   const aNumber = 5;
@@ -107,8 +107,8 @@ The name(s) inside the parentheses are the arguments (aka inputs), and the resul
 Functions can be used by applying them to values. For example, if we wanted to use `makeTheLogoBigger` to a value bound to the variable `logo` we could do that like this:
 
 {% highlight javascript %}
-  const logo = 5;
-  const newLogoSize = makeTheLogoBigger(logo); // 6
+  const originalSize = 5;
+  const newLogoSize = makeTheLogoBigger(originalSize); // 6
 {% endhighlight %}
 
 Occasionally you will need to do more than one thing in the process of producing a result from a function. Often this involves creating intermediate values. In this case you can add curly braces to the body of the function. You will also need to put `return` in front of the value that will be handed back from the function.
@@ -122,10 +122,10 @@ Occasionally you will need to do more than one thing in the process of producing
 
 ### Making decisions
 
-While not a key concept we're not going to be able to get away from needing to know the syntax for how to make a decision. There's really not a good way to make this into a function.
+While not a key concept we're not going to be able to get away from needing to know the syntax for how to make a decision. There's really not a good way to make this into a function without awkward syntax.
 
 {% highlight javascript %}
-  const result = condition ? ifTrue : ifFalse
+  const result = condition ? ifTrue : ifFalse;
 
   const answer = x > 3 ? "YES!" : "Nah";
 
@@ -136,7 +136,24 @@ While not a key concept we're not going to be able to get away from needing to k
     : "Nah";
 {% endhighlight %}
 
-### But, but, but, syntax?
 
+### Iteration
 
-Ok, so there are some nice syntactial bits we're leaving out here. Those things are not new concepts, just convenient ways of doing what we already know how to do. We'll cover the syntax bits as we encounter it.
+Although not required for our purposes, much JavaScript code utilizes a looping construct known as for. We will need to understand `for` so that we can draw a distinction between it and other ways of accomplishing the same thing.
+
+The primary purpose of `for` is to repeat a block of code multiple times with a variable that will change on each iteration. This variable is conventionally called `i`.
+
+{% highlight javascript %}
+  for (let i = 0; i < 10; i++) {
+    // do something here, each time i will be 1 greater than the last time
+  }
+{% endhighlight %}
+
+There is another variation of `for` that iterates over a collection and provides each element of the collection instead of a number.
+
+{% highlight javascript %}
+  const collection = ['hi', 72, false];
+  for (let value of collection) {
+    // value will be 'hi' on the first iteration, then 72, then false
+  }
+{% endhighlight %}

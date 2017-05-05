@@ -9,7 +9,7 @@ order: 3
 - Values are data that never changes
   - There are a few basic types, `Boolean`, `Number`, `String`
   - And a few composite types `Array` and `Object`
-- We can declare variables and bind values to them
+- We can declare variables and bind them to values
 - These bindings never change (unless we use `let`, and that should be very rarely needed)
 - Functions **always** have at least one argument and **always** produce a value
 - That's about all we care about
