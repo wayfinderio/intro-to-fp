@@ -4,7 +4,7 @@ category: Elm
 order: 1
 ---
 
-Elm, like any production ready programming language is a large topic and we couldn't possibly cover everything about the language in a single week much less a single day. We will cover the major topics in Elm and work through implementing a TodoMVC style application as an introduction.
+Elm, like any production ready programming language is a large topic and we couldn't possibly cover everything about the language in a single week much less a single day. We will cover the major topics in Elm and work through implementing multiple hands on exercises.
 
 ### Elm command line tools
 
@@ -30,23 +30,23 @@ For a language reference [see here](https://guide.elm-lang.org/core_language.htm
 
 For an API reference [see here](http://package.elm-lang.org/packages/elm-lang/core)
 
-Some core concepts to be familiar with:
+Open up the [Hello World](http://elm-lang.org/examples/hello-html) example on Try Elm, and experiment with the following concepts.
 
-- Types
-- Aliases
+Some core concepts to become familiar with:
+
 - Variables
 - Functions
+- Pipe forward/backwards
+- exercises/elm1.elm
 - If expression
+- Types (Sum and Product types, aka ADT's)
+- Aliases
 - Data structures
   - List
   - Tuple
   - Record
-- Pipe forward/backwards
 - Destructuring ([cheatsheet](https://gist.github.com/yang-wei/4f563fbf81ff843e8b1e))
 - Pattern matching
-- Commands / Subscriptions
-- Messages
-- Ports
 
 ### Elm Architecture
 
@@ -54,8 +54,15 @@ Some core concepts to be familiar with:
 
 Let's try out several of the examples on Try Elm
 
-### Elm TodoMVC
+### Effects
 
-Ok it's time to start working on our own implementation of [TodoMVC](http://todomvc.com/).
+There are several examples specific to both Commands and Subscriptions
+
+- Commands: [Random](http://elm-lang.org/examples/random), [HTTP](http://elm-lang.org/examples/http)
+- Subscriptions: [Time](http://elm-lang.org/examples/time), [Websockets](http://elm-lang.org/examples/websockets), [Mouse Drags](http://elm-lang.org/examples/drag)
+
+### Larger project example
+
+Based on the [TodoMVC](http://todomvc.com/) structure.
 
 [Final implementation by Evan Czaplicki](https://github.com/evancz/elm-todomvc)

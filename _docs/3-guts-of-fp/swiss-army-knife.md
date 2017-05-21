@@ -42,7 +42,7 @@ In the same manner that you implemented `fold`, implement a version of `filter` 
 
 Open `exercises/map-and-filter.js` in your editor and implement the map and filter functions. Do this either using a for loop or using recursion (or try both).
 
-To test your changes, run `npm run map-and-filter` from the `exercises` directory.
+To test your changes, run `npm run -s map-and-filter` from the `exercises` directory.
 
 ### It All Comes Back To Fold
 

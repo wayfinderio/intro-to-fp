@@ -81,6 +81,6 @@ Unfortunately JavaScript doesn't have any sort of built-in function composition 
 
 Open `exercises/composition1.js` in your editor of choice and implement `compose` and `pipe`.
 
-To test your changes, run `npm run composition1` from the `exercises` directory.
+To test your changes, run `npm run -s composition1` from the `exercises` directory.
 
 When you are done there is a part 2.

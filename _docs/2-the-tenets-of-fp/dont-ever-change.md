@@ -123,6 +123,6 @@ This lacks the efficiency gains that can come from using a library such as Immut
 
 Now it's your turn. Open `exercises/changing-state1.js` in your editor of choice and make the failing tests pass.
 
-To test your changes, run `npm run changing-state1` from the `exercises` directory.
+To test your changes, run `npm run -s changing-state1` from the `exercises` directory.
 
 When you are done there is a part 2 and 3.

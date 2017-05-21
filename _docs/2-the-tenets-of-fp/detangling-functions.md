@@ -70,6 +70,6 @@ const fn = (param1, ..., paramN) => {
 
 Now it's your turn. Open `exercises/detangling-functions.js` in your editor of choice and extract out the parts that you can from the function.
 
-To test your changes, run `npm run detangling-functions1` from the `exercises` directory.
+To test your changes, run `npm run -s detangling-functions1` from the `exercises` directory.
 
 When you are done there is a part 2.

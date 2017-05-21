@@ -1,29 +1,28 @@
 {
-  "name": "exercises",
+  "name": "intro-to-fp",
   "version": "1.0.0",
   "description": "Exercises for Intro to FP course",
   "main": "run.js",
   "scripts": {
-    "changing-state1": "mocha --require babel-register changing-state1.js || true",
-    "changing-state2": "mocha --require babel-register changing-state2.js || true",
-    "changing-state3": "mocha --require babel-register changing-state3.js || true",
-    "detangling-functions1": "mocha --require babel-register detangling-functions1.js || true",
-    "detangling-functions2": "mocha --require babel-register detangling-functions2.js || true",
-    "fold": "mocha --require babel-register fold.js || true",
-    "map-and-filter": "mocha --require babel-register map-and-filter.js || true",
-    "composition1": "mocha --require babel-register composition1.js || true",
-    "composition2": "mocha --require babel-register composition2.js || true",
-    "end-of-day-one": "mocha --require babel-register end-of-day-one.js || true"
-
+    "changing-state1": "mocha --require babel-register changing-state1.js",
+    "changing-state2": "mocha --require babel-register changing-state2.js",
+    "changing-state3": "mocha --require babel-register changing-state3.js",
+    "detangling-functions1": "mocha --require babel-register detangling-functions1.js",
+    "detangling-functions2": "mocha --require babel-register detangling-functions2.js",
+    "fold": "mocha --require babel-register fold.js",
+    "map-and-filter": "mocha --require babel-register map-and-filter.js",
+    "composition1": "mocha --require babel-register composition1.js",
+    "composition2": "mocha --require babel-register composition2.js",
+    "end-of-day-one": "mocha --require babel-register end-of-day-one.js"
   },
   "author": "David Koontz",
-  "license": "CC BY-NC-SA 2.0",
+  "license": "CC-BY-NC-SA-4.0",
   "dependencies": {
-    "babel-cli": "^6.24.1",
-    "babel-plugin-transform-object-rest-spread": "^6.23.0",
     "ramda": "^0.23.0"
   },
   "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.23.0",
     "babel-plugin-espower": "^2.3.2",
     "babel-register": "^6.24.1",
     "mocha": "^3.4.1",
