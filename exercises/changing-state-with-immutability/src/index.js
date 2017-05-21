@@ -1,48 +1,6 @@
 const { expect } = require('chai');
 
-const school = {
-  courses: [
-    {
-      id: 0,
-      title: 'Wish Fulfillment',
-      capacity: 25
-    },
-    {
-      id: 1,
-      title: 'Foundations Of Deception',
-      capacity: 200
-    },
-    {
-      id: 2,
-      title: 'Advanced Wish Fulfillment',
-      capacity: 10
-    },
-    {
-      id: 3,
-      title: 'Overcoming Stereotypes',
-      capacity: 12
-    }
-  ],
-  enrollment: [
-    {
-      name: 'Kazaam',
-      courses: [0, 1]
-    },
-    {
-      name: 'Majin Boo',
-      courses: [1, 3]
-    }
-  ]
-};
 
-const enrollStudent = (name, courseIds, state) => {
-  state.enrollment.push({
-    name: name,
-    courses: courseIds
-  });
-
-  return state;
-}
 
 // Tests ///////
 

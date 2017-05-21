@@ -36,17 +36,18 @@ This immediately brings up a problem, if we want to avoid mutating state, what u
   }
 {% endhighlight %}
 
-Furthermore, since `for` is not an expression, there is no way to really combine it with anything else. This is a concept known as composition and we'll return to it later. Fortunately there's another construct that can be used to accomplish a looping structure but allows you to return a value at the end and doesn't need to mutate anything or reassign variables. This means you can use `const someValue = doTheThing(...)` or even `const someValue = doTheThing(...).andThen(...)`. You may have never thought about `recursion` this way, but it's true!
+Furthermore, since `while` is not an expression, there is no way to really combine it with anything else. This is a concept known as composition and we'll return to it later. Fortunately there's another construct that can be used to accomplish a looping structure but allows you to return a value at the end and doesn't need to mutate anything or reassign variables. This means you can use `const someValue = doTheThing(...)` or even `const someValue = doTheThing(...).andThen(...)`. You may have never thought about `recursion` this way, but it's true!
 
 > Recursion is the ability of a function to be applied to an argument inside itself. If done wrong this leads to an infinite chain of application in much the same way that forgetting the `i++` at the end of a `while` is an infinite loop.
 
 {% highlight javascript %}
-  const populateArray = (numbers, i, endValue) =>
-    i < endValue
-      ? populateArray([...numbers, i], i + 1, endValue)
-      : numbers;
-  }
-  const numbers = populateArray([], 0, 5);
+  const populateArray =
+    (numbers, i, endValue) =>
+      i < endValue
+        ? populateArray([...numbers, i], i + 1, endValue)
+        : numbers;
+
+  const result = populateArray([], 0, 5);
 {% endhighlight %}
 
 This may look more complex than the `while` example if you're not used to thinking recursively and using it in this manner. Hopefully though you see much of the operations we're performing are the same.
@@ -57,7 +58,7 @@ This may look more complex than the `while` example if you're not used to thinki
 
 Everything we could express in a while loop we can do via recursion and not need to mutate an outer variable along the way. With that said though, you probably don't write many while loops given there are constructs that more directly do what you want such as for. Let's look at a few common cases.
 
-#### Filter out unwanted values, keeping the ones that pass a condition
+#### Filter: reject unwanted values
 
 {% highlight javascript %}
   const itemsToKeep = [];
@@ -68,7 +69,7 @@ Everything we could express in a while loop we can do via recursion and not need
   }
 {% endhighlight %}
 
-#### Transform values creating a new collection
+#### Map: transform values
 
 {% highlight javascript %}
   const newCollection = [];
@@ -87,7 +88,7 @@ Both these cases have a striking amount of similarity. Hopefully you've noticed 
   - `for (var i = 0; i < collection.length; i++) {` is identical for both
   - `itemsToKeep.push` is `newCollection.push`
 
-The only difference is that in the first case the item is conditionally added, and in the second, the item is processed before being added. This is the fundamental difference between the two operations, one filters out elements, the other maps one value to another. If the "when and what to insert" decision could be parameterized, then the rest of the code could be written once and not every time we need this construct.
+The only difference is that in the first case the item is conditionally added, and in the second, the item is processed before being added. This is the fundamental difference between the two operations, one filters out elements, the other maps one value to another. **_If the "when and what to insert" decision could be parameterized, then the rest of the code could be written once and not every time we need this construct._**
 
 ### Higher Order Functions
 
@@ -101,21 +102,39 @@ What are `someFunction` and `someValue`? No idea! Here's a function that receive
 
 {% highlight javascript %}
   const makeFunction = () =>
-    (thingToLog) => thingToLog + 1;
+    (someNumber) =>
+      someNumber + 1;
 
   const newFunction = makeFunction();
   newFunction(5); // 6
 {% endhighlight %}
 
+This is not particularly interesting, in fact a function written like this could be converted back to a constant like you're used to.
+
+{% highlight javascript %}
+  const newFunction = (someNumber) => someNumber + 1;
+{% endhighlight %}
+
+The interesting part is simply that functions are just values and can be returned like any other value, although this is not particularly common in JavaScript.
+
 The first function does not need to have zero arguments, in fact it's often useful for it to have arguments since the function that is returned can see and reference those variables.
 
 {% highlight javascript %}
-  const makeAdder = (firstValue) =>
-    (secondValue) =>
-      firstValue + secondValue;
+  const makeGreeting =
+    (message) =>
+      (name) =>
+        message + " " + name;
 
-  const plusTen = makeAdder(10);
-  const finalValue = plusTen(5); // 15
+  const jolly = makeGreeting("Hello there");
+  const grouchy = makeGreeting("Get off my lawn!");
+  jolly("Tina"); // "Hello there Tina"
+  grouchy("Max"); // "Get off my lawn! Max"
+{% endhighlight %}
+
+The inner returned functions can also be written on a single line
+
+{% highlight javascript %}
+  const makeGreeting = (message) => (name) => message + " " + name;
 {% endhighlight %}
 
 > A function that receives another function as an argument, or returns a new function as a return value is known as a **higher order function**.
@@ -142,15 +161,24 @@ The `thingToDoWithEachNewElement` is a function that takes the working `newColle
 
 #### Filter type operation
 {% highlight javascript %}
-  const filterFn = (element, collection) =>
-    someCondition(element)
-      ? [...collection, element]
-      : collection;
+  const filterFn =
+    (element, collection) =>
+      someCondition(element)
+        ? [...collection, element]
+        : collection;
+
+  const someCondition = (x) => x > 5;
+  filterFn(7, [4, 5]) // [4, 5, 7]
+  filterFn(4, [4, 5]) // [4, 5]
 {% endhighlight %}
 
 #### Map type operation
 {% highlight javascript %}
   const mapFn = (element, collection) => [...collection, someOperation(element)];
+
+  const someOperation = (str) => str + "!";
+  mapFn("hi", []) // ["hi!"]
+  mapFn("excited", ["I", "am"]) // ["I", "am", "excited!"]
 {% endhighlight %}
 
 And we could use these functions with `fold` in a more concrete setting:

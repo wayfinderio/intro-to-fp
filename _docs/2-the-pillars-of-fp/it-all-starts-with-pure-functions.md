@@ -70,7 +70,7 @@ Using pure functions _to the maximum extent possible_, does not mean _built enti
 
 This is ok, effectful functions can user pure functions, and pure functions can user pure functions
 
-> Effectful => Effectuful => Pure
+> Effectful => Effectful => Pure
 
 This is ok, effectful functions can use effectful functions
 
