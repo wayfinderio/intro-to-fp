@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# Remember to install httrack with `brew install htttrack`
+
+mkdir intro-to-fp
 httrack 127.0.0.1:4000 -O intro-to-fp
 rm intro-to-fp/hts-log.txt
 rm -rf intro-to-fp/hts-cache
