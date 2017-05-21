@@ -1,10 +1,11 @@
 // This file is based on https://github.com/mzabriskie/axios/blob/master/lib/helpers/buildURL.js
 
-const { expect } = require('chai');
+const assert = require('power-assert');
 const R = require('ramda');
 
+// This is to replace the various files the original code was using.
 // You can remove this if you replace the existing utils with your own.
-const utils = require('./utils');
+const utils = require('./end-of-day-one-utils');
 
 function encode(val) {
   return encodeURIComponent(val).
@@ -79,4 +80,11 @@ const testParams = {
   timestamp: new Date('1/1/1')
 };
 
-expect(buildURL('google.com', testParams)).to.equal('google.com?query[]=%7B%22id%22:1%7D&query[]=%7B%22id%22:2%7D&timestamp=2001-01-01T07:00:00.000Z');
+describe('buildURL function', () => {
+  it('uses the params to build an escaped URL', () => {
+    assert.equal(
+      buildURL('google.com', testParams),
+      'google.com?query[]=%7B%22id%22:1%7D&query[]=%7B%22id%22:2%7D&timestamp=2001-01-01T07:00:00.000Z'
+    );
+  })
+});

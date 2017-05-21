@@ -192,8 +192,8 @@ And we could use these functions with `fold` in a more concrete setting:
 
 ### Exercise
 
-Ready for a challenge? Open `exercises/origami/src/index.js` in your editor and implement the `fold` function that can operate on arrays. Do this either using a for loop or using recursion (or try both). It matters much less how something like `fold` is implemented "under the hood" if the interface is pure.
+Ready for a challenge? Open `exercises/fold.js` in your editor and implement the `fold` function that can operate on arrays. Do this either using a for loop or using recursion (or try both). It matters much less how something like `fold` is implemented "under the hood" as long as the interface is pure.
 
-To test your changes, run `node ../run.js` from the `exercises/origami` directory.
+To test your changes, run `npm run fold` from the `exercises` directory.
 
 > Ask questions!

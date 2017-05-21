@@ -1,3 +1,5 @@
+const sinon = require('sinon');
+const assert = require('power-assert');
 const fs = require('fs');
 const { sep } = require('path');
 
@@ -18,6 +20,8 @@ const { sep } = require('path');
 //   "#ff0000": "red",
 //   "#00ff00": "green"
 // }
+
+// This is the function to detangle
 const convertFile = (fileName) => {
   const fileContents = fs.readFileSync(fileName);
   const json = JSON.parse(fileContents);
@@ -30,21 +34,39 @@ const convertFile = (fileName) => {
     colorMap[hexColor] = entry.colorName;
   }
 
-  // This is simply a convenient way to test
-  // expect(colorMap).to.have.property('#ff0000', 'red');
-  // expect(colorMap).to.have.property('#00ff00', 'green');
-  // expect(colorMap).to.have.property('#0000ff', 'blue');
-  // expect(colorMap).to.have.property('#00ffff', 'cyan');
-  // expect(colorMap).to.have.property('#ff00ff', 'magenta');
-  // expect(colorMap).to.have.property('#ffff00', 'yellow');
-  // expect(colorMap).to.have.property('#000000', 'black');
-
   if (!fs.existsSync('processed')) {
     fs.mkdirSync('processed');
   }
 
   const fileNameParts = fileName.split('.');
-  fs.writeFileSync('processed' + sep + fileNameParts[0] + '_processed.' + fileNameParts[1], JSON.stringify(colorMap, null, 2));
+  fs.writeFileSync(
+    'processed' + sep + fileNameParts[0] + '_processed.' + fileNameParts[1],
+    JSON.stringify(colorMap, null, 2)
+  );
 }
 
-convertFile('colors.json');
+
+describe('Detangling an effectful function', () => {
+  it('should be able to test the pure parts of the function here once it is detangled', () => {
+
+    sinon.stub(fs, 'existsSync').returns(true);
+    sinon.stub(fs, 'readFileSync').returns('\
+      {\
+        "colors": [\
+            { "colorName":"red", "hexValue":"#f00" },\
+            { "colorName":"green", "hexValue":"#0f0" }\
+        ]\
+      }');
+    sinon.stub(fs, 'writeFileSync');
+
+    convertFile('colors.json');
+
+    assert.deepEqual(
+      fs.writeFileSync.getCall(0).args[1],
+`{\n\
+  "#ff0000": "red",\n\
+  "#00ff00": "green"\n\
+}`
+    );
+  });
+});

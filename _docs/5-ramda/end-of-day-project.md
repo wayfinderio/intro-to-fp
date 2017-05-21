@@ -10,6 +10,6 @@ It's been a heck of a ride so far, but now it's time to put what you've learned 
 
 You are free to use any code you might want to, but the idea is to take a non-trivial chunk of regular imperative JavaScript and give it the functional treatment. We've picked out an example of this [here](https://github.com/mzabriskie/axios/blob/master/lib/helpers/buildURL.js). The idea is not to port the lines 1-for-1 but to look at what is being done in the code and try to figure out how it would be accomplished with the kinds of pure composable functions we've been exploring.
 
-This example task is ready to go at `exercises/end-of-day-one/src/index.js`.
+This example task is ready to go at `exercises/end-of-day-one.js`.
 
-To test your changes, run `node ../run.js` from the `exercises/end-of-day-one` directory.
+To test your changes, run `npm run end-of-day-one` from the `exercises` directory.

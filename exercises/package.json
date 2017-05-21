@@ -6,7 +6,15 @@
   "scripts": {
     "changing-state1": "mocha --require babel-register changing-state1.js || true",
     "changing-state2": "mocha --require babel-register changing-state2.js || true",
-    "changing-state3": "mocha --require babel-register changing-state3.js || true"
+    "changing-state3": "mocha --require babel-register changing-state3.js || true",
+    "detangling-functions1": "mocha --require babel-register detangling-functions1.js || true",
+    "detangling-functions2": "mocha --require babel-register detangling-functions2.js || true",
+    "fold": "mocha --require babel-register fold.js || true",
+    "map-and-filter": "mocha --require babel-register map-and-filter.js || true",
+    "composition1": "mocha --require babel-register composition1.js || true",
+    "composition2": "mocha --require babel-register composition2.js || true",
+    "end-of-day-one": "mocha --require babel-register end-of-day-one.js || true"
+
   },
   "author": "David Koontz",
   "license": "CC BY-NC-SA 2.0",
@@ -19,6 +27,8 @@
     "babel-plugin-espower": "^2.3.2",
     "babel-register": "^6.24.1",
     "mocha": "^3.4.1",
-    "power-assert": "^1.4.2"
+    "mocha-sinon": "^2.0.0",
+    "power-assert": "^1.4.2",
+    "sinon": "^2.2.0"
   }
 }

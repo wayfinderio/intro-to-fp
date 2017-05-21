@@ -40,9 +40,9 @@ We could do the same for `mapFn` + `fold`:
 
 In the same manner that you implemented `fold`, implement a version of `filter` and `map` that operate on arrays.
 
-Open `exercises/utility/src/index.js` in your editor and implement the fold function that can operate on arrays. Do this either using a for loop or using recursion (or try both).
+Open `exercises/map-and-filter.js` in your editor and implement the map and filter functions. Do this either using a for loop or using recursion (or try both).
 
-To test your changes, run `node ../run.js` from the `exercises/utility` directory.
+To test your changes, run `npm run map-and-filter` from the `exercises` directory.
 
 ### It All Comes Back To Fold
 

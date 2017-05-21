@@ -42,17 +42,9 @@ This works marvelously! We take `Number -> Number -> Number` and we plug it into
 
 ### Getting Compositional
 
-Ok, let's get to some examples of this composition thing. Unfortunately JavaScript doesn't have any sort of built-in function composition so we'll have to make it ourselves.
+Ok, let's get to some examples of this composition thing.
 
-> For any real use you should really use one of the battle-tested versions from Ramda or Lodash.
-
-{% highlight javascript %}
-  const compose =
-    (thisHappensFirst, thisHappensSecond) =>
-      (...args) => thisHappensSecond(thisHappensFirst(...args));
-{% endhighlight %}
-
-This `compose` function takes in two functions and returns a new function that applies the arguments to the first, then feeds the result into the second and finally returns the result of the second. The `...args` bits are to collect an arbitrary number of arguments into a single value and then to spread them out again when passing them along to `thisHappensFirst`.
+The `compose` function takes in two functions and returns a new function that applies the arguments to the first, then feeds the result into the second and finally returns the result of the second. The `...args` bits are to collect an arbitrary number of arguments into a single value and then to spread them out again when passing them along to `thisHappensFirst`.
 
 {% highlight javascript %}
   // Number -> String
@@ -66,17 +58,9 @@ This `compose` function takes in two functions and returns a new function that a
   const result = excitedAboutLongest([81,2,51], [6,4,12,1,8]) // "5!"
 {% endhighlight %}
 
-If you've been through algebra you might recall something that looked like this: `g	∘ f = g(f(x))`. In math, the ∘ means compose and it's where this idea comes from. As you can see, composing g with f is very similar to what we did for `thisHappensFirst` and `thisHappensSecond` except the order is backwards. Mathematical composition is from right-to-left, so you'll want to re-adjust yourself to this. Typically there is a flipped version, often named `pipe` that is left-to-right. Let's fix our function.
+If you've been through algebra you might recall something that looked like this: `g	∘ f = g(f(x))`. In math, the ∘ means compose and it's where this idea comes from. As you can see, composing g with f is very similar to what we did for `thisHappensFirst` and `thisHappensSecond` except the order is backwards. Mathematical composition is from right-to-left, so you'll want to re-adjust yourself to this. Typically there is a flipped version, often named `pipe` that is left-to-right.
 
-{% highlight javascript %}
-  const pipe =
-    (thisHappensFirst, thisHappensSecond) =>
-      (...args) => thisHappensSecond(thisHappensFirst(...args));
-
-  const compose =
-    (thisHappensSecond, thisHappensFirst) =>
-      (...args) => thisHappensSecond(thisHappensFirst(...args));
-{% endhighlight %}
+### In the wild
 
 In most functional languages the compose operation will be built in, usually as an infix operator. In Elm and F# it's the `>>` or `<<` depending on if you want left-to-right or right-to-left composition. In Haskell the `.` is used. This can make for very expressive function composition.
 
@@ -91,8 +75,12 @@ newFunction = second . first
 
 ### Exercise
 
-Now it's your turn to get composed. Open `exercises/composition/src/index.js` in your editor of choice and finish the definitions of `moar` using either `compose` or `pipe`. `moar` should utilize `a`, `b`, and `c`.
+Unfortunately JavaScript doesn't have any sort of built-in function composition so we'll have to make `compose` and `pipe` ourselves.
 
-> Remember, compose and pipe both take 2 arguments.
+> For any real use you should really use one of the battle-tested versions from Ramda or Lodash.
 
-To test your changes, run `node ../run.js` from the `exercises/composition` directory.
+Open `exercises/composition1.js` in your editor of choice and implement `compose` and `pipe`.
+
+To test your changes, run `npm run composition1` from the `exercises` directory.
+
+When you are done there is a part 2.
