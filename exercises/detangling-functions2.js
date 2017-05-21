@@ -1,5 +1,4 @@
 const fs = require('fs');
-const { expect } = require('chai');
 const { sep } = require('path');
 
 // JSON data looks like

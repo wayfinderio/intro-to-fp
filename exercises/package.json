@@ -1,17 +1,24 @@
 {
   "name": "exercises",
   "version": "1.0.0",
-  "description": "",
+  "description": "Exercises for Intro to FP course",
   "main": "run.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "changing-state1": "mocha --require babel-register changing-state1.js || true",
+    "changing-state2": "mocha --require babel-register changing-state2.js || true",
+    "changing-state3": "mocha --require babel-register changing-state3.js || true"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "David Koontz",
+  "license": "CC BY-NC-SA 2.0",
   "dependencies": {
     "babel-cli": "^6.24.1",
     "babel-plugin-transform-object-rest-spread": "^6.23.0",
-    "chai": "^3.5.0",
     "ramda": "^0.23.0"
+  },
+  "devDependencies": {
+    "babel-plugin-espower": "^2.3.2",
+    "babel-register": "^6.24.1",
+    "mocha": "^3.4.1",
+    "power-assert": "^1.4.2"
   }
 }
