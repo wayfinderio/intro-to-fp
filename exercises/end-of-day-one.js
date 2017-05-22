@@ -77,14 +77,14 @@ const testParams = {
     { id: 1 },
     { id: 2 }
   ],
-  timestamp: new Date('1/1/1')
+  timestamp: new Date(Date.UTC(2001, 0, 1, 0 ,0, 0))
 };
 
 describe('buildURL function', () => {
   it('uses the params to build an escaped URL', () => {
     assert.equal(
       buildURL('google.com', testParams),
-      'google.com?query[]=%7B%22id%22:1%7D&query[]=%7B%22id%22:2%7D&timestamp=2001-01-01T07:00:00.000Z'
+      'google.com?query[]=%7B%22id%22:1%7D&query[]=%7B%22id%22:2%7D&timestamp=2001-01-01T00:00:00.000Z'
     );
   })
 });
