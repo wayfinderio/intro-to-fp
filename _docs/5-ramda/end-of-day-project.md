@@ -13,3 +13,5 @@ You are free to use any code you might want to, but the idea is to take a non-tr
 This example task is ready to go at `exercises/end-of-day-one.js`.
 
 To test your changes, run `npm run -s end-of-day-one` from the `exercises` directory.
+
+## [Next](/6-abstraction/lets-get-parametric)

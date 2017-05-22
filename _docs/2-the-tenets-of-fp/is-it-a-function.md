@@ -42,3 +42,5 @@ Consider the following code snippets. Are they a pure function? If not, why?
 [](#spoiler "No, this function references baz in calculating the resulting value for the <= 10 case. This means if baz changes, the result of the function will change.")
 
 Hopefully you are getting a sense of what pure vs effectful functions look like.
+
+## [Next](/2-the-tenets-of-fp/detangling-functions)

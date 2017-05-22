@@ -11,8 +11,10 @@ To be ready to start the course you'll need to install a few things:
 
 - [Node 7.x](http://nodejs.org) - This is the Current version not the LTS one
 - [Elm](http://elm-lang.org)
-- Download the zip file for [project files](http://bit.ly/intro-to-fp) and expand it
+- Download the zip file for [project files](rebrand.ly/intro-to-fp) and expand it
   - Open a terminal and cd into the `exercises` folder in the expanded files
   - Install node modules using `npm install`
 
 > If you're having **any** problems please let an instructor know.
+
+## [Next](/0-pre-work/baseline)

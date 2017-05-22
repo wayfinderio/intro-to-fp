@@ -151,13 +151,13 @@ For any while loop of the shape with the form:
 
 there is a generalized solution known commonly as `fold`, `reduce`, or `aggregate`.
 
-Fold has the general shape of:
+ general shape of:
 
 {% highlight javascript %}
-  const newCollection = fold(thingToDoWithEachNewElement, initialNewCollection, collectionToIterateOver);
+  const newValue = fold(thingToDoWithEachNewElement, initialNewValue, collectionToIterateOver);
 {% endhighlight %}
 
-The `thingToDoWithEachNewElement` is a function that takes the working `newCollection` and adds a new element to it. This might be by doing a if check in the case of a filter type operation, or by running the element through a function first as in the case of the map type operation.
+The `thingToDoWithEachNewElement` is a function that takes the working `initialNewValue` and combines it with an element from `collectionToIterateOver`. This might be done by doing a if check in the case of a filter type operation, or by running the element through a function first as in the case of the map type operation. Or it might be something unrelated to collections in the case of a sum type operation.
 
 #### Filter type operation
 {% highlight javascript %}
@@ -197,3 +197,5 @@ Ready for a challenge? Open `exercises/fold.js` in your editor and implement the
 To test your changes, run `npm run -s fold` from the `exercises` directory.
 
 > Ask questions!
+
+## [Next](/3-guts-of-fp/type-it-out)

@@ -107,3 +107,5 @@ And there we are! Fold is the while loop of FP and all of the other variants you
 ### Practicalities In JavaScript
 
 Now you may be saying, this seems slightly awkward in JavaScript and you would be right. JavaScript was not created with this use case in mind and doesn't exactly do us any favors here. For practical use of curried functions libraries such as [Ramda](http://ramdajs.com/) and [Lodash](https://lodash.com/) provide a `curry` function that takes a regular function and converts it, while still allowing you to provide as many arguments as you want. If you provide less than the function has, you'll get back the intermediate function, otherwise you'll get the result. This sort of thing isn't necessary in languages such as F#, Elm, Haskell, OCaml, PureScript, or Reason where all functions are automatically curried and all the `foo(a)(b)(c)` type application is handled for you when you do `foo a b c`.
+
+## [Next](/4-fp-jitsu/compose-yourself)

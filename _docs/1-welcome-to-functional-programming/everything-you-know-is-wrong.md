@@ -71,3 +71,5 @@ So yeah, we're going for the programming language equivalent of Japanese or Mand
 ### Beginner's mind
 
 We will use JavaScript as a starting point, since it is common and hopefully familiar to you. This will be a different JavaScript than the one that you may be familiar with. Try to resist the natural tendency to feel that it is wrong because it is different. Take on the beginner's mind and imagine you are learning JavaScript again for the first time. If it helps, pretend you've been pulled into an alternate dimension where JavaScript developed differently and you're now trying to figure out how it works here, in the FP dimension.
+
+## [Next](/1-welcome-to-functional-programming/javascript)

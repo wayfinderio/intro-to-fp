@@ -67,3 +67,5 @@ What do we know about these:
 We've asserted quite a few things in this section, without looking at a single line of implementation code. The types tell us enough to reason a fair amount about our functions. There are even more techniques that allow us to take this reasoning much farther up to the point of being able to prove properties about our programs.
 
 > Many languages like Idris and language extensions like Liquid Haskell allow us to write simple proofs of our functions and types, these guarantees are very strong and a very active area of research in language development.
+
+## [Next](/7-elm/introducing-elm)

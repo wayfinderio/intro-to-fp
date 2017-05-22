@@ -84,3 +84,5 @@ Open `exercises/composition1.js` in your editor of choice and implement `compose
 To test your changes, run `npm run -s composition1` from the `exercises` directory.
 
 When you are done there is a part 2.
+
+## [Next](/4-fp-jitsu/pipelines)

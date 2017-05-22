@@ -73,3 +73,5 @@ Now it's your turn. Open `exercises/detangling-functions.js` in your editor of c
 To test your changes, run `npm run -s detangling-functions1` from the `exercises` directory.
 
 When you are done there is a part 2.
+
+## [Next](/2-the-tenets-of-fp/lets-be-reasonable)

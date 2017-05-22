@@ -82,3 +82,5 @@ This new function now has all the configuration we need to provide the filter co
 If we could fill in the first part, the types would line up again, but in JavaScript as in most languages you provide all the arguments at the same time.
 
 > Strictly this isn't true due to defaults and undefined being auto-assigned to any arguments you don't provide a value for. Conceptually though, you either provide values for all the arguments that need them at the same time.
+
+## [Next](/3-guts-of-fp/partial-application)

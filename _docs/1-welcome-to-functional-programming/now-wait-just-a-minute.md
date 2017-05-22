@@ -37,3 +37,5 @@ You can't be serious.
 ### What is the point of this?
 
 We've talked a bit about what a functional version of JavaScript looks like, but we haven't talked about why it might be this way. Seeing the differences may have brought up a lot of questions, this may even feel dumb or limiting. In the next section we'll dive into the motivation behind these decisions.
+
+## [Next](/2-the-tenets-of-fp/it-all-starts-with-pure-functions/)

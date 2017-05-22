@@ -90,3 +90,5 @@ Write out type signatures for the following JavaScript functions. If the type is
 - Map.has
 - Array.slice
 - Array.push
+
+## [Next](/3-guts-of-fp/swiss-army-knife)

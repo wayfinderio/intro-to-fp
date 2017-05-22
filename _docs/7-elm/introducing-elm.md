@@ -35,16 +35,21 @@ Open up the [Hello World](http://elm-lang.org/examples/hello-html) example on Tr
 Some core concepts to become familiar with:
 
 - Variables
-- Functions
+- Functions / Lambdas
 - Pipe forward/backwards
 - exercises/elm1.elm
 - If expression
+- Map / filter / fold
+- Case of
+- exercises/elm2.elm
 - Types (Sum and Product types, aka ADT's)
 - Aliases
 - Data structures
   - List
   - Tuple
   - Record
+- Maybe / Result
+- exercises/elm3.elm
 - Destructuring ([cheatsheet](https://gist.github.com/yang-wei/4f563fbf81ff843e8b1e))
 - Pattern matching
 

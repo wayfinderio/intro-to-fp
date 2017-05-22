@@ -25,3 +25,5 @@ Some other terms that relate to reasoning you might have heard:
 
 - Referential transparency: The ability to replace a function application with its result. This is the "could be replaced with a lookup table" property.
 - Equational reasoning: The ability to take a function and inline it wherever it is used without changing the meaning of the program. This is very helpful when understanding how new code works and is also frequently used when constructing proofs. The inverse property, the ability to extract any bit of code into a function aids considerably when refactoring.
+
+## [Next](/2-the-tenets-of-fp/dont-ever-change)

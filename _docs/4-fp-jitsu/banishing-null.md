@@ -268,3 +268,5 @@ This is similar to above except now we have a function that might extract the le
 {% endhighlight %}
 
 With this, we could turn any function that cannot succeed and wants to return information about why into an Either/Result. This does not have the exact same effect in terms of jumping up a call stack, but it does allow you to accomplish that same end result, but now it's your decision and made explicit.
+
+## [Next](/5-ramda/end-of-day-project)

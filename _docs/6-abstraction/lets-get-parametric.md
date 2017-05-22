@@ -64,3 +64,5 @@ Abstraction is about reducing discarding all unessential information so only the
 From this triangle diagram we can't determine the triangle's height, area, what the angles are, even the ratio of the base to the height. None of that matters though since this abstraction is about the relationship between a triangle and a rhombus that is twice its area. From that we can deduce that a triangle's area is `1/2 base * height`.
 
 > It's fairly common for people to complain about "leaky abstractions". These are not proper abstractions as the above example demonstrates. If you wonder if there are any proper abstractions in software, ask yourself when was the last time you had to think about electron flows?
+
+## [Next](/6-abstraction/paramecitry-pop-quiz)

@@ -131,7 +131,7 @@ While not a key concept we're not going to be able to get away from needing to k
 
   // Whitespace isn't significant here. In the following sections we'll typically write this multiple lines:
 
-  cont answer = x > 3
+  const answer = x > 3
     ? "YES!"
     : "Nah";
 {% endhighlight %}
@@ -157,3 +157,5 @@ There is another variation of `for` that iterates over a collection and provides
     // value will be 'hi' on the first iteration, then 72, then false
   }
 {% endhighlight %}
+
+## [Next](/1-welcome-to-functional-programming/now-wait-just-a-minute)

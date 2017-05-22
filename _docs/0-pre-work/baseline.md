@@ -25,3 +25,5 @@ console.log(testResult);
 console.log("should equal");
 console.log([6, 9]);
 {% endhighlight %}
+
+## [Next](/1-welcome-to-functional-programming/everything-you-know-is-wrong)

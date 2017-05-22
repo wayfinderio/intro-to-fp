@@ -116,3 +116,5 @@ Almost every character beyond the stuff that is unavoidable such as parentheses 
 While the for loop style may be more familiar, look at how intertwined the machinery of iteration and updating a collection are with the logic of what you want to accomplish. This is a fairly trivial example, I'm sure you've seen much much worse.
 
 One big problem people new to this style have is to assume the semantic density of any line is equal to imperative code. Functional style code is often many fewer lines but those lines are often more dense. The real win though is in emphasizing the core logic you want to perform and in removing altogether then noise of common things such as iteration. So yes, it may take you longer to work through any given line, but in the end you'll have fewer lines, and those lines will all have a much better signal to noise ratio than you're used to.
+
+## [Next](/4-fp-jitsu/banishing-null)

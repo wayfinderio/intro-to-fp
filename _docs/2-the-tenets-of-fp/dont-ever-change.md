@@ -126,3 +126,5 @@ Now it's your turn. Open `exercises/changing-state1.js` in your editor of choice
 To test your changes, run `npm run -s changing-state1` from the `exercises` directory.
 
 When you are done there is a part 2 and 3.
+
+## [Next](/3-guts-of-fp/while-we-are-at-it)

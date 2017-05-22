@@ -1,5 +1,5 @@
 ---
-title: It All Starts With Functions
+title: It All Starts With Pure Functions
 category: The Tenets of FP
 order: 1
 ---
@@ -130,3 +130,5 @@ Generally when people dislike a new language or tool, it's because it is hard, n
 
 - Effectful: Causing an observable change in the state of the application or greater computing environment
 - Imperative: A style of programming where lines of source code are implicitly ordered temporally. This is often a necessity as many of the commands in imperative languages can result in effects and thus must be performed in a strictly specified order.
+
+## [Next](/2-the-tenets-of-fp/is-it-a-function)
