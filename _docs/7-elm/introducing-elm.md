@@ -52,12 +52,15 @@ Some core concepts to become familiar with:
 - exercises/elm3.elm
 - Destructuring ([cheatsheet](https://gist.github.com/yang-wei/4f563fbf81ff843e8b1e))
 - Pattern matching
+- Elm Html
+- exercises/elm4.elm
 
 ### Elm Architecture
 
 [Elm Architecture](https://guide.elm-lang.org/architecture/)
 
-Let's try out several of the examples on Try Elm
+- Messages
+- exercises/elm5.elm
 
 ### Effects
 
@@ -65,6 +68,7 @@ There are several examples specific to both Commands and Subscriptions
 
 - Commands: [Random](http://elm-lang.org/examples/random), [HTTP](http://elm-lang.org/examples/http)
 - Subscriptions: [Time](http://elm-lang.org/examples/time), [Websockets](http://elm-lang.org/examples/websockets), [Mouse Drags](http://elm-lang.org/examples/drag)
+- exercises/elm6.elm
 
 ### Larger project example
 

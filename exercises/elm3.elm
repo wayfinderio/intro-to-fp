@@ -2,14 +2,6 @@
 
 import Html exposing (text)
 
--- Types (Sum and Product types, aka ADT's)
--- Aliases
--- Data structures
---  - List
---  - Tuple
---  - Record
--- Maybe / Result
-
 type Class = Fighter | Paladin | Ranger | Mage | Cleric | Druid | Thief | Bard
 type Race = Dwarf | Elf | Gnome | HalfElf | Halfling | Human
 type alias Item =
@@ -61,7 +53,7 @@ showItem : Item -> String
 showItem item = ?
 
 -- Title formats the details of a character, for example for lily it would return
--- Lily is a Human Paladin who carries a weapon: +1 Sword of smiting
+-- Lily is a Human Paladin who carries a weapon: +1 Sword of smiting and nothing else
 title : Character -> String
 title character = ?
 
