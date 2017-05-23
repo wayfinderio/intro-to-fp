@@ -14,13 +14,19 @@ main =
 
 view model =
   div []
-    [ text [] "Loading" ]
+    [ button [ onClick Decrement ] [ text "-" ]
+    , div [] [ text (toString model) ]
+    , button [ onClick Increment ] [ text "+" ]
+    ]
 
 
-type Msg = PageLoaded String
+type Msg = Increment | Decrement
 
 
 update msg model =
   case msg of
-    PageLoaded contents ->
-      model
+    Increment ->
+      model + 1
+
+    Decrement ->
+      model - 1
