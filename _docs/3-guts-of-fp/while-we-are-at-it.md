@@ -129,6 +129,9 @@ The first function does not need to have zero arguments, in fact it's often usef
   const grouchy = makeGreeting("Get off my lawn!");
   jolly("Tina"); // "Hello there Tina"
   grouchy("Max"); // "Get off my lawn! Max"
+
+  // we don't need to create an intermediate function
+  makeGreeting("Look ma, no funtion, right")("Sam"); // "Look ma, no funtion, right Sam"
 {% endhighlight %}
 
 The inner returned functions can also be written on a single line
