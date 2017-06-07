@@ -23,10 +23,13 @@ const selectedShows = [
   }
 ];
 
+// (a -> Bool) -> Array a -> Array a
 const filter = (filterFn, array) => {
   // implement your own filter here
+
 }
 
+// (a -> b) -> Array a -> Array b
 const map = (mapFn, array) => {
   // implement your own map here
 }

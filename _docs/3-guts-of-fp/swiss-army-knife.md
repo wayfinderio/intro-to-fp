@@ -56,8 +56,8 @@ I'm sure you noticed that the structure of your `filter` and `map` functions was
       : collection;
 
 
-  //          foldFn           -> init    -> array   -> result
-  // (a -> Array b -> Array b) -> Array b -> Array a -> Array b
+  //     foldFn    -> init ->  array  -> result
+  // (a -> b -> b) ->   b  -> Array a ->   b
   const fold = (foldFn, init, array) => ...
 {% endhighlight %}
 

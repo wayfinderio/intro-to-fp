@@ -70,8 +70,8 @@ If the function was returning a function instead:
 Ok now we're ready to tackle `fold`.
 
 {% highlight javascript %}
-  //          fn               ->   init  ->  array  -> result
-  // (a -> Array b -> Array b) -> Array b -> Array a -> Array b
+  //       fn      -> init ->  array  -> result
+  // (a -> b -> b) ->   b  -> Array a ->   b
   const fold = (fn, init, array) => { ... }
 {% endhighlight %}
 

@@ -57,10 +57,10 @@ Partial application definitely takes some getting used to but it is very importa
 
 ### Exercise
 
-Take the `map` function you wrote earlier and convert it into curried form. Since it has two arguments you'll be getting back a function after supplying the first argument. Remember to use two sets of parentheses.
+Write the `String.split` function in curried form. Then take the `map` function you wrote earlier and convert it into curried form. Since it has two arguments you'll be getting back a function after supplying the first argument. Remember to use two sets of parentheses.
 
 {% highlight javascript %}
-  const result = map(thingToDo)(arrayToDoItOn);
+  const result = map(String.split)(['test-123', 'hi-there', 'nothingToSplitHere']);
 {% endhighlight %}
 
 > It is very common to forget to split up arguments into separate parentheses. If you are getting mysterious errors about undefined values this may be the issue.
@@ -90,7 +90,7 @@ Now instead a single function that takes 3 arguments and returns the result, we 
 It's now possible to plug in the custom filter logic and get back the shape we need to use with fold. Of course fold itself would need to be converted to curried form.
 
 {% highlight javascript %}
-  // fold is: (a -> Array b -> Array b) -> Array b -> Array a -> Array b
+  // fold is: (a -> b -> b) -> b -> Array a -> b
   // filterFn is: (a -> Boolean) -> a -> Array a -> Array a
   // filter is: (a -> Boolean) -> Array a -> Array a
   const filter = someCondition => collection =>
