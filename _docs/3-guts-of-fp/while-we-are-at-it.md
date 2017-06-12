@@ -50,6 +50,42 @@ Furthermore, since `while` is not an expression, there is no way to really combi
   const result = populateArray([], 0, 5);
 {% endhighlight %}
 
+The process of running this function would look like this.
+
+{% highlight javascript %}
+          numbers i
+              |   |
+              v   v
+populateArray([], 0, 5)
+
+             numbers i
+                 |   |
+                 v   v
+  populateArray([0], 1, 5)
+
+                 numbers  i
+                    |     |
+                    v     v
+    populateArray([0, 1], 2, 5)
+
+                     numbers   i
+                        |      |
+                        v      v
+      populateArray([0, 1, 2], 3, 5)
+
+                         numbers    i
+                            |       |
+                            v       v
+        populateArray([0, 1, 2, 3], 4, 5)
+
+                            numbers      i
+                               |         |
+                               v         v
+          populateArray([0, 1, 2, 3, 4], 5, 5)
+{% endhighlight %}
+
+When we run `populateArray`, 0 is less than 5, so we recursively call `populateArray` again, but this time with `[0]` and `1` for the `numbers` and `i` arguments. This continues down until `i` is 5 at which point we return the current value of numbers which is `[0, 1, 2, 3, 4]`. This value is in turn returned by each prior `populateArray` and the final result is thus `[0, 1, 2, 3, 4]`.
+
 This may look more complex than the `while` example if you're not used to thinking recursively and using it in this manner. Hopefully though you see much of the operations we're performing are the same.
 
 - `i < 5` is the same as `i < endValue`
@@ -188,7 +224,7 @@ And we could use these functions with `fold` in a more concrete setting:
 
 {% highlight javascript %}
   const filteredValues = fold(filterFn, [], [3, 4, 5, 6]);
-  const transformedValues = fold(mapFn, [], [3, 4, 5, 6]);
+  const transformedValues = fold(mapFn, [], ["programming", "is", "fun"]);
 {% endhighlight %}
 
 > This is generally the point where people's eyes glaze over as we begin to get a bit more abstract. From here on out, we will be working with concepts you likely have never encountered. This is genuinely hard to get at first, but the "different paradigm" type of understanding is on the other side, so hang in there!
