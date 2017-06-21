@@ -76,7 +76,7 @@ This new function now has all the configuration we need to provide the filter co
 #### Soooooo close...
 {% highlight javascript %}
   // (a -> Boolean) -> a -> Array a -> Array a
-  //                  (a -> Array b -> Array b) -> Array b -> Array a -> Array b
+  //                  (a ->    b    ->    b   ) -> b -> Array a -> b
 {% endhighlight %}
 
 If we could fill in the first part, the types would line up again, but in JavaScript as in most languages you provide all the arguments at the same time.

@@ -48,22 +48,23 @@ The `a` and `b` arguments here are not independent, you provide both of them at 
 
 ### Partial Application Is Key
 
-Partial application definitely takes some getting used to but it is very important in the FP toolkit. When every function is curried, it makes re-using it to get new functionality very straightforward. Think back to `String.split` which has type `String -> String -> Array String`. Let's say we had an Array of Strings and we wanted to split each one. This sounds perfect for `map`, except that `map` wants a function that is `a -> b` and we have a function that is `a -> a -> b`. In a world of partial application though this is not a problem at all, we'll partially apply `String.split` with the string `'-'` so that it goes from `String -> String -> Array String` to `String -> Array String` which fits perfectly into `map`.
+Partial application definitely takes some getting used to but it is very important in the FP toolkit. When every function is curried, it makes re-using it to get new functionality very straightforward. Think back to `String.split` which has type `String -> String -> Array String`. Let's say we had an Array of Strings and we wanted to split each one. This sounds perfect for `map`, except that `map` wants a function that is `a -> b` and we have a function that is `a -> a -> b`. If String.split was curried this would not be a problem at all, we'd partially apply `String.split` with the string `'-'` so that it goes from `String -> String -> Array String` to `String -> Array String` which fits perfectly into `map`. `String.split` is unfortunately not curried so instead let's imagine a `split` function that is:
 
 {% highlight javascript %}
   const stringsToSplit = ['test-123', 'hi-there', 'nothingToSplitHere'];
-  const splitStrings = map(String.split('-'), stringsToSplit);
+  const splitStrings = map(split('-'), stringsToSplit;
 {% endhighlight %}
 
 ### Exercise
 
-Write the `String.split` function in curried form. Then take the `map` function you wrote earlier and convert it into curried form. Since it has two arguments you'll be getting back a function after supplying the first argument. Remember to use two sets of parentheses.
+Write the `split` function in curried form. Then take the `map` function you wrote earlier and convert it also into curried form. Since it has two arguments you'll be getting back a function after supplying the first argument. Remember to use two sets of parentheses.
 
 {% highlight javascript %}
-  const result = map(String.split)(['test-123', 'hi-there', 'nothingToSplitHere']);
+  const result = map(split('-'))(['test-123', 'hi-there', 'nothingToSplitHere']);
+  // result will be [['test', '123'], ['hi', 'there'], ['nothingToSplitHere']]
 {% endhighlight %}
 
-> It is very common to forget to split up arguments into separate parentheses. If you are getting mysterious errors about undefined values this may be the issue.
+> It is very common to forget to separate arguments into separate parentheses. If you are getting mysterious errors about undefined values this may be the issue.
 
 ### Home stretch
 
